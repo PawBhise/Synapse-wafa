@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "-- This is auto-generated code\nSELECT\n    EJOB,SUM(ESAL) AS Total_sal\nFROM\n    OPENROWSET(\n        BULK 'https://bwsynapseadls.blob.core.windows.net/demo/EMPLOYEES.csv',\n        FORMAT = 'CSV',\n        HEADER_ROW = True,\n        PARSER_VERSION = '2.0'\n    ) AS [result]\n    GROUP BY EJOB\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
